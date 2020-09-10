@@ -1,16 +1,34 @@
 const container = document.querySelector("#container");
+let gridSize = 16; //give the grid a size of 16 at start
 
-//create a 16x16 grid of divs
-for (i = 1; i <=16; i++) {
-    for (j = 1; j <=16; j++) {
-        const div = document.createElement("div");
-        div.classList.add("drawingspace");
-        div.style.gridRowStart = `${i}`;
-        div.style.gridColumnStart = `${j}`;
-        container.appendChild(div);
+//draw initial grid
+drawNewGrid(gridSize);
+
+const button = document.querySelector("#drawgrid");
+button.addEventListener("click", function() {
+    gridSize = parseInt( prompt("Enter a number for the size of the new grid:") );
+    removeOldGrid();
+    drawNewGrid(gridSize);
+});
+
+function drawNewGrid(gridSize) {
+    //create a 16x16 grid of divs
+    for (i = 1; i <=gridSize; i++) {
+        for (j = 1; j <=gridSize; j++) {
+            const div = document.createElement("div");
+            div.classList.add("drawingspace");
+            div.style.gridRowStart = `${i}`;
+            div.style.gridColumnStart = `${j}`;
+            div.style.backgroundColor = "white"; //reset the drawingboard
+            container.appendChild(div);
+        }
     }
+    const drawDivs = document.querySelectorAll(".drawingspace");
+    drawDivs.forEach(d => d.addEventListener("mouseenter", function() {d.style.backgroundColor = "black";}) );
 }
 
-const drawDivs = document.querySelectorAll(".drawingspace");
-drawDivs.forEach(d => d.addEventListener("mouseenter", function() {d.style.backgroundColor = "black";}) );
-
+function removeOldGrid() {
+    while (container.lastChild) {
+        container.removeChild(container.lastChild);
+    }    
+}
