@@ -26,11 +26,18 @@ function drawNewGrid(gridSize) {
         }
     }
     const drawDivs = document.querySelectorAll(".drawingspace");
-    drawDivs.forEach(d => d.addEventListener("mouseenter", function() {d.style.backgroundColor = "black";}) );
+    drawDivs.forEach(d => d.addEventListener("mouseenter", function() {d.style.backgroundColor = createRandomRGB();}) );
 }
 
 function removeOldGrid() {
     while (container.lastChild) {
         container.removeChild(container.lastChild);
     }    
+}
+
+function createRandomRGB() {
+    let r = Math.floor(Math.random()*256);
+    let g = Math.floor(Math.random()*256);
+    let b = Math.floor(Math.random()*256);
+    return `rgb(${r}, ${g}, ${b})`;
 }
