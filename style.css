@@ -1,0 +1,9 @@
+#container {
+    display: grid;
+    width: 800px;
+    height: 800px;
+    border: 10px solid red;
+    position: absolute;
+    left: 50%;
+    margin-left: -400px;
+}
