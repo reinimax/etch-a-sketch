@@ -6,12 +6,14 @@ drawNewGrid(gridSize);
 
 const button = document.querySelector("#drawgrid");
 button.addEventListener("click", function() {
-    gridSize = parseInt( prompt("Enter a number for the size of the new grid:") );
+    gridSize = parseInt( prompt("Enter the number of squares for each side of the new grid:") );
     removeOldGrid();
     drawNewGrid(gridSize);
 });
 
 function drawNewGrid(gridSize) {
+    //limit the size to 150 divs per side.
+    if (gridSize > 150) gridSize = 150;
     //create a 16x16 grid of divs
     for (i = 1; i <=gridSize; i++) {
         for (j = 1; j <=gridSize; j++) {
