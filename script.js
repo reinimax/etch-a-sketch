@@ -22,11 +22,14 @@ function drawNewGrid(gridSize) {
             div.style.gridRowStart = `${i}`;
             div.style.gridColumnStart = `${j}`;
             div.style.backgroundColor = "white"; //reset the drawingboard
+            div.style.opacity = 0.1;
             container.appendChild(div);
         }
     }
     const drawDivs = document.querySelectorAll(".drawingspace");
-    drawDivs.forEach(d => d.addEventListener("mouseenter", function() {d.style.backgroundColor = createRandomRGB();}) );
+    drawDivs.forEach(d => d.addEventListener("mouseenter", function(e) {
+        draw(e.target);
+    }) );
 }
 
 function removeOldGrid() {
@@ -40,4 +43,12 @@ function createRandomRGB() {
     let g = Math.floor(Math.random()*256);
     let b = Math.floor(Math.random()*256);
     return `rgb(${r}, ${g}, ${b})`;
+}
+
+function draw(div) {
+    div.style.backgroundColor = createRandomRGB();
+    let opacity = parseFloat(div.style.opacity);
+    opacity += 0.1;
+    div.style.opacity = opacity;
+    console.log(div.style.opacity);
 }
