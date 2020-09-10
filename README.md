@@ -1,1 +1,2 @@
-Another project for The Odin Project. Let's see how it goes.
+Another project for The Odin Project. The optional part, which included adding more and more black to a (random) rgb-color, was quite a hard bit, but a google-search yielded the answer on stackoverflow.
+All in all the project was much fun and I was surprised by how little code is actually necessary to make something like this work. Maybe I'll come back to it in the future and add a bit more functionality (for example, it would be cool to choose between different colors for painting). The UI is also very basic by now and could be improved. Oh, and the number of squares per side is limited to 150, because of performance issues.
