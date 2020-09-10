@@ -14,15 +14,15 @@ button.addEventListener("click", function() {
 function drawNewGrid(gridSize) {
     //limit the size to 150 divs per side.
     if (gridSize > 150) gridSize = 150;
-    //create a 16x16 grid of divs
+    //create a grid of divs
     for (i = 1; i <=gridSize; i++) {
         for (j = 1; j <=gridSize; j++) {
             const div = document.createElement("div");
             div.classList.add("drawingspace");
             div.style.gridRowStart = `${i}`;
             div.style.gridColumnStart = `${j}`;
-            div.style.backgroundColor = "white"; //reset the drawingboard
-            div.style.opacity = 0.1;
+            div.style.backgroundColor = "rgb(255, 255, 255)"; //reset the drawingboard
+            div.style.opacity = 0.0; 
             container.appendChild(div);
         }
     }
@@ -38,17 +38,18 @@ function removeOldGrid() {
     }    
 }
 
-function createRandomRGB() {
-    let r = Math.floor(Math.random()*256);
-    let g = Math.floor(Math.random()*256);
-    let b = Math.floor(Math.random()*256);
-    return `rgb(${r}, ${g}, ${b})`;
-}
-
 function draw(div) {
-    div.style.backgroundColor = createRandomRGB();
+    //increase opacity of the div by 10%
     let opacity = parseFloat(div.style.opacity);
-    opacity += 0.1;
+    if (opacity < 1) opacity += 0.1; else opacity = 1;
     div.style.opacity = opacity;
-    console.log(div.style.opacity);
+    
+    //create a random RGB-value and darken it based on opacity
+    let r = Math.floor(Math.random()*256) * (1 - opacity);
+    let g = Math.floor(Math.random()*256) * (1 - opacity);
+    let b = Math.floor(Math.random()*256) * (1 - opacity);
+
+    div.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    
+    
 }
