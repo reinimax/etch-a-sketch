@@ -1,6 +1,6 @@
 # Etch a sketch
 
-My second JavaScript project on the Foundations curriculum at [The Odin Project](https://www.theodinproject.com). The application creates a drawing surface reminiscent of an [Etch A Sketch](https://en.wikipedia.org/wiki/Etch_A_Sketch). The drawing surface consists of `<div>` elements that are created with two nested for-loops. On mouseover, each `<div>` is filled with a random color at 10% opacity. Each time one hovers over a `<div>` the opacity is increased until the square becomes black. A button enables creating a new drawing surface with a custom "resolution". The number entered into the prompt denotes the number of `<div>`'s per row. This number is limited to 150 because of performance issues.
+My second JavaScript project on the Foundations curriculum at [The Odin Project](https://www.theodinproject.com). The application creates a drawing surface reminiscent of an [Etch A Sketch](https://en.wikipedia.org/wiki/Etch_A_Sketch). The drawing surface consists of `<div>` elements that are created with two nested for-loops. On mouseover, each `<div>` is filled with a random color at 10% opacity. Each time one hovers over a `<div>` the opacity and darkness of the color are increased until the square becomes black. A button enables creating a new drawing surface with a custom "resolution". The number entered into the prompt denotes the number of `<div>`'s per row. This number is limited to 150 because of performance issues.
 
 ![Screenshot](screenshot.png)
 
